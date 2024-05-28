@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <!-- 
+    Thymeleaf, un motor de plantillas para Java que se integra muy bien con Spring Boot. 
+    Thymeleaf permite generar páginas HTML dinámicas y procesar expresiones de Java en el lado del servidor.
+    las etiquetas HTML tienen un atributo th el cual es el namespace que declaramos arriba para que pueda
+    sobreescribir el valor de la etiqueta con la variable que indiquemos
+   -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,9 +13,7 @@
   </head>
   <body>
     <h1 th:text="${title}">Hola Mundo Spring Boot</h1>
-    <ul>
-      <li th:text="${name}"></li>
-      <li th:text="${dev}"></li>
-    </ul>
+    <span th:text="${user.getName}"></span>
+    <span th:text="${user.getLastname}"></span>
   </body>
 </html>
