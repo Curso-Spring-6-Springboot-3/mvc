@@ -16,7 +16,7 @@ public class UserController {
 
         model.addAttribute("title", "Hola mundo Spring Boot");
         model.addAttribute("user", user);
-
+        user.setEmail("ley.chang@hotmail.com");
         return "details";  // Lo que está dentro de "" hace referencia al template que estoy ocupando dentro de src/main/resources/templates
     }
 }

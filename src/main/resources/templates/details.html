@@ -12,8 +12,12 @@
     <title th:text="${title}">Document</title>
   </head>
   <body>
-    <h1 th:text="${title}">Hola Mundo Spring Boot</h1>
-    <span th:text="${user.getName}"></span>
-    <span th:text="${user.getLastname}"></span>
+    <h1 th:text="${title}">Hola Mundo</h1>
+    <ul>
+      <li th:text="${user.getName}"></li>
+      <li th:text="${user.getLastname}"></li>
+      <li th:if="${user.getEmail}" th:text="${user.getEmail}"></li>
+      <li th:if="${user.getEmail == null}" th:text="${'Sin email'}"></li>
+    </ul>
   </body>
 </html>
