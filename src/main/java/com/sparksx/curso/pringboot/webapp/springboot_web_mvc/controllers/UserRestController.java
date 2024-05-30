@@ -9,7 +9,10 @@ import com.sparksx.curso.pringboot.webapp.springboot_web_mvc.models.dto.UserDto;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController // Se le declara que es un controller de tipo Rest
@@ -28,6 +31,7 @@ public class UserRestController {
         response.put("user", user);
         return response; 
     }
+
     @GetMapping(path="/details")
     public UserDto details(){
 
@@ -38,6 +42,25 @@ public class UserRestController {
         userDto.setTitle("Fullstack");
         
         return userDto;
+    }
+
+    @GetMapping(path="/list")
+    public List<User> list(){
+        User user1 = new User("David", "Ley");
+        User user2 = new User("David", "Ley");
+        User user3 = new User("David", "Ley");
+
+        // Forma 1 de generar un array de objetos
+        List<User> users = new ArrayList<>();
+
+        users.add(user1);
+        users.add(user2);
+        users.add(user3);
+
+        // Forma 2 de generar un array de objetos
+        List<User> users2 = Arrays.asList(user1,user2,user3);
+
+        return users2;
     }
 
 }
