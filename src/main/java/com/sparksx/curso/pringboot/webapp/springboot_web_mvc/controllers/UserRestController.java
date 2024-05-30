@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sparksx.curso.pringboot.webapp.springboot_web_mvc.models.User;
+import com.sparksx.curso.pringboot.webapp.springboot_web_mvc.models.dto.UserDto;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,8 +16,9 @@ import java.util.Map;
 @RequestMapping("/api") // Prefix de la ruta
 public class UserRestController {
 
-    @GetMapping("/details") // Esta es la ruta
-    public Map<String, Object> details(){ //No lleva el model porque ya no vamos a regresar una vista si no solo datos
+    // USANDO MAP
+    @GetMapping(path="/details-map") // Esta es la ruta
+    public Map<String, Object> detailsMap(){ //No lleva el model porque ya no vamos a regresar una vista si no solo datos
 
         User user = new User("David", "Ley");
 
@@ -26,4 +28,16 @@ public class UserRestController {
         response.put("user", user);
         return response; 
     }
+    @GetMapping(path="/details")
+    public UserDto details(){
+
+        UserDto userDto = new UserDto();
+
+        User user = new User("David", "Ley");
+        userDto.setUser(user);
+        userDto.setTitle("Fullstack");
+        
+        return userDto;
+    }
+
 }
